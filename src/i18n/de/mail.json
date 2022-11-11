@@ -1,0 +1,25 @@
+{
+	"Signature": {
+		"SentWithLove": "Mit herz gesendet,"
+	},
+	"Footer": {
+		"SentTo": "Diese Email wurde an {to} verschickt, weil Sie als Account registriert ist."
+	},
+	"Greeting": {
+		"Hello": "Hallo {name},",
+		"Hi": "Hi {name},"
+	},
+	"Welcome": {
+		"Subject": "Wilkommen in der Gemeinschaft!",
+		"Title": "Wilkommen in der Gemeinschaft!",
+		"Preview": "Bestätigen Sie Ihre Email zu bestätigen und schließen Sie die Registierung ab.",
+		"Body": "Bitte drücken Sie auf den Knopf um Ihre Email zu bestätigen und damit die Registrierung abzuschließen.",
+		"Button": {
+			"Text": "Email bestätigen",
+			"Link": "https://example.com/confirm/{token}"
+		},
+		"Signature": {
+			"Name": "Dein WikiHub team"
+		}
+	}
+}

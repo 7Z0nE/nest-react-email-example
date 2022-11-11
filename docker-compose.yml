@@ -1,0 +1,50 @@
+services:
+  mail:
+    container_name: ${MAIL_URL}
+    image: mailhog/mailhog:latest
+    environment:
+      MAILNAME: ${MAIL_DOMAIN}
+      MAIL_ADDRESS: ${MAIL_ADDRESS}
+      MAIL_PASS: ${MAIL_PASSWORD}
+      MH_STORAGE: maildir
+    networks:
+      - backend
+    ports:
+      - 1025:1025
+      - 8025:8025
+    volumes:
+      - maildata:/maildir
+  
+  server:
+    environment:
+      MAIL_URL: ${MAIL_URL}
+      MAIL_HOST: ${MAIL_HOST}
+      MAIL_DOMAIN: ${MAIL_DOMAIN}
+      MAIL_PORT: ${MAIL_PORT}
+    ports:
+      - 3214:3000
+      - 9229:9229
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: server
+    working_dir: /var/app
+    depends_on:
+      - mail
+    networks:
+      - backend
+    command: yarn start:debug
+    volumes:
+      - ./package.json:/var/app/package.json
+      - ./src:/var/app/src
+      - ./test:/var/app/test
+      - nodemodules:/var/app/node_modules/
+      - ./dist:/var/app/dist/
+
+volumes:
+  maildata:
+  nodemodules:
+
+networks:
+  backend:
+    driver: bridge

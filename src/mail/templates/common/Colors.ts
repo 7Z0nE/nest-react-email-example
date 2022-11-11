@@ -1,0 +1,11 @@
+export const primary = '#FF9701';
+export const black = '#041E2F';
+export const darkGrey = '#5A616C';
+export const grey = '#D7D9DC';
+export const lightGrey = '#F0F2F5';
+export const white = '#FFFFFF';
+export const primaryText = black;
+export const secondaryText = darkGrey;
+export const red = '#CF1322';
+export const danger = red;
+export const buttonText = black;
